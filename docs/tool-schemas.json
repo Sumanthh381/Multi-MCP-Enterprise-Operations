@@ -1,0 +1,1933 @@
+[
+  {
+    "key": "alarm.search_assets",
+    "server": "alarm",
+    "name": "search_assets",
+    "title": null,
+    "description": "Resolve an asset name to identifiers; optionally restrict to a plant unit.",
+    "inputSchema": {
+      "properties": {
+        "query": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "limit": {
+          "default": 10,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "search_assetsArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.asset_metadata",
+    "server": "alarm",
+    "name": "asset_metadata",
+    "title": null,
+    "description": "Read criticality, unit and site metadata for a resolved asset.",
+    "inputSchema": {
+      "properties": {
+        "asset_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id"
+      ],
+      "title": "asset_metadataArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.get_alarms",
+    "server": "alarm",
+    "name": "get_alarms",
+    "title": null,
+    "description": "Retrieve one page of asset alarms. Follow total_pages to retrieve remaining pages.",
+    "inputSchema": {
+      "properties": {
+        "asset_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "start_time": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Time"
+        },
+        "end_time": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Time"
+        },
+        "severity": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Severity"
+        },
+        "page": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "page_size": {
+          "default": 50,
+          "maximum": 200,
+          "minimum": 1,
+          "title": "Page Size",
+          "type": "integer"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id"
+      ],
+      "title": "get_alarmsArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.alarm_detail",
+    "server": "alarm",
+    "name": "alarm_detail",
+    "title": null,
+    "description": "Retrieve an alarm by identifier.",
+    "inputSchema": {
+      "properties": {
+        "alarm_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Alarm Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alarm_id"
+      ],
+      "title": "alarm_detailArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.alarm_summary",
+    "server": "alarm",
+    "name": "alarm_summary",
+    "title": null,
+    "description": "Aggregate filtered alarms by selected dimensions and KPIs.",
+    "inputSchema": {
+      "$defs": {
+        "SummaryRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "asset_ids": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Asset Ids",
+              "type": "array"
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "time_range": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/TimeRange"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "severity": {
+              "items": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "title": "Severity",
+              "type": "array"
+            },
+            "alarm_types": {
+              "items": {
+                "enum": [
+                  "process",
+                  "safety",
+                  "device"
+                ],
+                "type": "string"
+              },
+              "title": "Alarm Types",
+              "type": "array"
+            },
+            "group_by": {
+              "default": [
+                "alarm_name"
+              ],
+              "items": {
+                "enum": [
+                  "asset_id",
+                  "asset_name",
+                  "alarm_name",
+                  "severity",
+                  "unit",
+                  "site"
+                ],
+                "type": "string"
+              },
+              "title": "Group By",
+              "type": "array"
+            },
+            "kpis": {
+              "default": [
+                "alarm_count"
+              ],
+              "items": {
+                "enum": [
+                  "alarm_count",
+                  "critical_count",
+                  "recurring_rate",
+                  "avg_ack_delay",
+                  "suppression_candidate_rate"
+                ],
+                "type": "string"
+              },
+              "title": "Kpis",
+              "type": "array"
+            }
+          },
+          "title": "SummaryRequest",
+          "type": "object"
+        },
+        "TimeRange": {
+          "additionalProperties": false,
+          "properties": {
+            "start_time": {
+              "format": "date-time",
+              "title": "Start Time",
+              "type": "string"
+            },
+            "end_time": {
+              "format": "date-time",
+              "title": "End Time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_time",
+            "end_time"
+          ],
+          "title": "TimeRange",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/SummaryRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "alarm_summaryArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.alarm_trends",
+    "server": "alarm",
+    "name": "alarm_trends",
+    "title": null,
+    "description": "Bucket alarm counts or acknowledgement delays over time.",
+    "inputSchema": {
+      "$defs": {
+        "TimeRange": {
+          "additionalProperties": false,
+          "properties": {
+            "start_time": {
+              "format": "date-time",
+              "title": "Start Time",
+              "type": "string"
+            },
+            "end_time": {
+              "format": "date-time",
+              "title": "End Time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_time",
+            "end_time"
+          ],
+          "title": "TimeRange",
+          "type": "object"
+        },
+        "TrendsRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "asset_ids": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Asset Ids",
+              "type": "array"
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "time_range": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/TimeRange"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "severity": {
+              "items": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "title": "Severity",
+              "type": "array"
+            },
+            "alarm_types": {
+              "items": {
+                "enum": [
+                  "process",
+                  "safety",
+                  "device"
+                ],
+                "type": "string"
+              },
+              "title": "Alarm Types",
+              "type": "array"
+            },
+            "bucket": {
+              "default": "daily",
+              "enum": [
+                "hourly",
+                "daily",
+                "weekly"
+              ],
+              "title": "Bucket",
+              "type": "string"
+            },
+            "metrics": {
+              "default": [
+                "alarm_count"
+              ],
+              "items": {
+                "enum": [
+                  "alarm_count",
+                  "avg_ack_delay"
+                ],
+                "type": "string"
+              },
+              "title": "Metrics",
+              "type": "array"
+            }
+          },
+          "title": "TrendsRequest",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/TrendsRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "alarm_trendsArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.correlate_alarms",
+    "server": "alarm",
+    "name": "correlate_alarms",
+    "title": null,
+    "description": "Find time-window co-occurrences; correlation does not prove causation.",
+    "inputSchema": {
+      "$defs": {
+        "CorrelationRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "asset_ids": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Asset Ids",
+              "type": "array"
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "time_range": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/TimeRange"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "severity": {
+              "items": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "title": "Severity",
+              "type": "array"
+            },
+            "alarm_types": {
+              "items": {
+                "enum": [
+                  "process",
+                  "safety",
+                  "device"
+                ],
+                "type": "string"
+              },
+              "title": "Alarm Types",
+              "type": "array"
+            },
+            "correlation_method": {
+              "const": "cooccurrence",
+              "default": "cooccurrence",
+              "title": "Correlation Method",
+              "type": "string"
+            },
+            "lag_window_minutes": {
+              "default": 15,
+              "maximum": 1440,
+              "minimum": 1,
+              "title": "Lag Window Minutes",
+              "type": "integer"
+            },
+            "severity_threshold": {
+              "default": "medium",
+              "enum": [
+                "low",
+                "medium",
+                "high",
+                "critical"
+              ],
+              "title": "Severity Threshold",
+              "type": "string"
+            },
+            "min_support": {
+              "default": 1,
+              "minimum": 1,
+              "title": "Min Support",
+              "type": "integer"
+            }
+          },
+          "title": "CorrelationRequest",
+          "type": "object"
+        },
+        "TimeRange": {
+          "additionalProperties": false,
+          "properties": {
+            "start_time": {
+              "format": "date-time",
+              "title": "Start Time",
+              "type": "string"
+            },
+            "end_time": {
+              "format": "date-time",
+              "title": "End Time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_time",
+            "end_time"
+          ],
+          "title": "TimeRange",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/CorrelationRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "correlate_alarmsArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.flood_analysis",
+    "server": "alarm",
+    "name": "flood_analysis",
+    "title": null,
+    "description": "Identify rolling alarm floods above a configurable event threshold.",
+    "inputSchema": {
+      "$defs": {
+        "FloodRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "asset_ids": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Asset Ids",
+              "type": "array"
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "time_range": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/TimeRange"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "severity": {
+              "items": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "title": "Severity",
+              "type": "array"
+            },
+            "alarm_types": {
+              "items": {
+                "enum": [
+                  "process",
+                  "safety",
+                  "device"
+                ],
+                "type": "string"
+              },
+              "title": "Alarm Types",
+              "type": "array"
+            },
+            "threshold_count": {
+              "default": 10,
+              "minimum": 1,
+              "title": "Threshold Count",
+              "type": "integer"
+            },
+            "rolling_window_minutes": {
+              "default": 10,
+              "maximum": 1440,
+              "minimum": 1,
+              "title": "Rolling Window Minutes",
+              "type": "integer"
+            }
+          },
+          "title": "FloodRequest",
+          "type": "object"
+        },
+        "TimeRange": {
+          "additionalProperties": false,
+          "properties": {
+            "start_time": {
+              "format": "date-time",
+              "title": "Start Time",
+              "type": "string"
+            },
+            "end_time": {
+              "format": "date-time",
+              "title": "End Time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_time",
+            "end_time"
+          ],
+          "title": "TimeRange",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/FloodRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "flood_analysisArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.rationalization_candidates",
+    "server": "alarm",
+    "name": "rationalization_candidates",
+    "title": null,
+    "description": "Find recurrent or stale alarms requiring engineering review; never suppress them.",
+    "inputSchema": {
+      "$defs": {
+        "RationalizationRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "asset_ids": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Asset Ids",
+              "type": "array"
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "time_range": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/TimeRange"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "severity": {
+              "items": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "title": "Severity",
+              "type": "array"
+            },
+            "alarm_types": {
+              "items": {
+                "enum": [
+                  "process",
+                  "safety",
+                  "device"
+                ],
+                "type": "string"
+              },
+              "title": "Alarm Types",
+              "type": "array"
+            },
+            "recurrence_threshold": {
+              "default": 5,
+              "minimum": 2,
+              "title": "Recurrence Threshold",
+              "type": "integer"
+            },
+            "stale_minutes_threshold": {
+              "default": 180,
+              "minimum": 1,
+              "title": "Stale Minutes Threshold",
+              "type": "integer"
+            }
+          },
+          "title": "RationalizationRequest",
+          "type": "object"
+        },
+        "TimeRange": {
+          "additionalProperties": false,
+          "properties": {
+            "start_time": {
+              "format": "date-time",
+              "title": "Start Time",
+              "type": "string"
+            },
+            "end_time": {
+              "format": "date-time",
+              "title": "End Time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_time",
+            "end_time"
+          ],
+          "title": "TimeRange",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/RationalizationRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "rationalization_candidatesArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.priority_score",
+    "server": "alarm",
+    "name": "priority_score",
+    "title": null,
+    "description": "Score an alarm using severity and asset criticality.",
+    "inputSchema": {
+      "$defs": {
+        "AlarmRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "alarm_id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Alarm Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "alarm_id"
+          ],
+          "title": "AlarmRequest",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/AlarmRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "priority_scoreArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.operator_recommendations",
+    "server": "alarm",
+    "name": "operator_recommendations",
+    "title": null,
+    "description": "Read advisory operator actions and optional related asset/alarm context.",
+    "inputSchema": {
+      "$defs": {
+        "RecommendationRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "alarm_id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Alarm Id",
+              "type": "string"
+            },
+            "include_related": {
+              "default": false,
+              "title": "Include Related",
+              "type": "boolean"
+            },
+            "include_asset_context": {
+              "default": false,
+              "title": "Include Asset Context",
+              "type": "boolean"
+            },
+            "include_historical_pattern": {
+              "default": false,
+              "title": "Include Historical Pattern",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "alarm_id"
+          ],
+          "title": "RecommendationRequest",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/RecommendationRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "operator_recommendationsArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.generate_calculation",
+    "server": "alarm",
+    "name": "generate_calculation",
+    "title": null,
+    "description": "Register an allowlisted KPI formula and return its calculation identifier.",
+    "inputSchema": {
+      "$defs": {
+        "CalculationFilters": {
+          "additionalProperties": false,
+          "properties": {
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "start_time": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Start Time"
+            },
+            "end_time": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "End Time"
+            }
+          },
+          "title": "CalculationFilters",
+          "type": "object"
+        },
+        "GenerateRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "calculation_type": {
+              "enum": [
+                "alarm_flood_index",
+                "critical_alarm_density",
+                "operator_response_efficiency",
+                "nuisance_alarm_score"
+              ],
+              "title": "Calculation Type",
+              "type": "string"
+            },
+            "filters": {
+              "$ref": "#/$defs/CalculationFilters"
+            }
+          },
+          "required": [
+            "calculation_type"
+          ],
+          "title": "GenerateRequest",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/GenerateRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "generate_calculationArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.execute_calculation",
+    "server": "alarm",
+    "name": "execute_calculation",
+    "title": null,
+    "description": "Evaluate a previously registered KPI formula; arbitrary code is prohibited.",
+    "inputSchema": {
+      "$defs": {
+        "CalculationFilters": {
+          "additionalProperties": false,
+          "properties": {
+            "unit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Unit"
+            },
+            "site": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Site"
+            },
+            "start_time": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Start Time"
+            },
+            "end_time": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "End Time"
+            }
+          },
+          "title": "CalculationFilters",
+          "type": "object"
+        },
+        "ExecuteRequest": {
+          "additionalProperties": false,
+          "properties": {
+            "calculation_id": {
+              "minLength": 1,
+              "title": "Calculation Id",
+              "type": "string"
+            },
+            "filters": {
+              "$ref": "#/$defs/CalculationFilters"
+            }
+          },
+          "required": [
+            "calculation_id"
+          ],
+          "title": "ExecuteRequest",
+          "type": "object"
+        }
+      },
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/ExecuteRequest"
+        },
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request"
+      ],
+      "title": "execute_calculationArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "alarm.kpi_definitions",
+    "server": "alarm",
+    "name": "kpi_definitions",
+    "title": null,
+    "description": "Read documented KPI formulas and measurement definitions.",
+    "inputSchema": {
+      "properties": {
+        "trace_id": {
+          "default": "",
+          "maxLength": 128,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "title": "kpi_definitionsArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "workorders.maintenance_history",
+    "server": "workorders",
+    "name": "maintenance_history",
+    "title": null,
+    "description": "Read persisted maintenance history for a resolved alarm asset identifier.",
+    "inputSchema": {
+      "properties": {
+        "asset_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "default": "",
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id"
+      ],
+      "title": "maintenance_historyArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "workorders.prepare_issue_draft",
+    "server": "workorders",
+    "name": "prepare_issue_draft",
+    "title": null,
+    "description": "Prepare a local escalation draft. Does not create a ticket or contact GitHub.",
+    "inputSchema": {
+      "properties": {
+        "asset_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "evidence": {
+          "maxLength": 12000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        },
+        "trace_id": {
+          "default": "",
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "title",
+        "evidence"
+      ],
+      "title": "prepare_issue_draftArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  },
+  {
+    "key": "workorders.create_ticket",
+    "server": "workorders",
+    "name": "create_ticket",
+    "title": null,
+    "description": "Create one local mock ticket from a persisted draft only after explicit user confirmation.",
+    "inputSchema": {
+      "properties": {
+        "draft_id": {
+          "title": "Draft Id",
+          "type": "string"
+        },
+        "confirmed": {
+          "default": false,
+          "title": "Confirmed",
+          "type": "boolean"
+        },
+        "trace_id": {
+          "default": "",
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "draft_id"
+      ],
+      "title": "create_ticketArguments",
+      "type": "object"
+    },
+    "outputSchema": {
+      "additionalProperties": false,
+      "description": "Stable MCP output envelope; payload schema depends on the documented API operation.",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "api_status": {
+          "default": 200,
+          "title": "Api Status",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 0,
+          "title": "Retries",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "trace_id"
+      ],
+      "title": "ToolResult",
+      "type": "object"
+    },
+    "icons": null,
+    "annotations": null,
+    "meta": null,
+    "execution": null
+  }
+]

@@ -36,7 +36,7 @@ This maps the supplied assignment to actual implementation and evidence, includi
 | CI | GitHub Actions formatting/lint/static/tests/audit/build/smoke; remote result must be checked separately |
 | Demo screenshots + video <=10 minutes | Six browser screenshots and short MP4 linked in README; successful and degraded workflows |
 | Known limitations / future improvements | `known-limitations.md`, design decisions, README |
-| Meaningful commits and PR | Feature branch, implementation/test/docs commits; PR creation depends on GitHub API access, see submission status |
+| Meaningful commits and PR | Feature branch, focused implementation/test/build/docs commits; [PR #1](https://github.com/Sumanthh381/Multi-MCP-Enterprise-Operations/pull/1) created |
 | GitHub publication / evaluator access | Git push to supplied repository; visibility/access is inherited and not changed |
 | TDD expectation | Automated tests present and executed; strict red/green commit history is not claimed |
 

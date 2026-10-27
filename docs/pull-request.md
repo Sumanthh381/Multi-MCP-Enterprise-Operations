@@ -16,15 +16,15 @@ Implement Operations Atlas, a self-contained Multi-MCP Enterprise Operations Cop
 
 ## Screenshots and demo
 
-- ![Investigation](evidence/03-investigation.png)
-- ![Degraded operation](evidence/05-degraded.png)
-- [Demo video](evidence/demo.mp4)
+- ![Investigation](https://raw.githubusercontent.com/Sumanthh381/Multi-MCP-Enterprise-Operations/refs/heads/feat/enterprise-operations-copilot/docs/evidence/03-investigation.png)
+- ![Degraded operation](https://raw.githubusercontent.com/Sumanthh381/Multi-MCP-Enterprise-Operations/refs/heads/feat/enterprise-operations-copilot/docs/evidence/05-degraded.png)
+- [Demo video](https://github.com/Sumanthh381/Multi-MCP-Enterprise-Operations/blob/feat/enterprise-operations-copilot/docs/evidence/demo.mp4)
 
 Paths above refer to files under `docs/` on the feature branch.
 
 ## Validation
 
-Full pytest suite, real MCP integration and combined backend E2E pass; see committed JUnit and coverage evidence for the final counts. All 62 requests across supplied Postman collections passed. Formatting, lint, mypy, dependency audit, browser automation and containerized smoke test passed. The sandbox builder used a trusted host-downloaded pinned wheel cache because container DNS is unavailable. Remote CI has not been claimed as passed.
+51 pytest tests pass with 97.75% measured line coverage (98% rounded), including real MCP integration and combined backend E2E; committed JUnit and coverage reports provide evidence. All 62 requests across supplied Postman collections passed. Formatting, lint, mypy, dependency audit, browser automation and containerized smoke test passed. The sandbox builder used a trusted host-downloaded pinned wheel cache because container DNS is unavailable. Remote CI has not been claimed as passed.
 
 ## Design decisions and limitations
 

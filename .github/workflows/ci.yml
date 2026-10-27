@@ -1,0 +1,31 @@
+name: Validate enterprise copilot
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  quality-and-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - run: pip install -r requirements.lock && pip install --no-deps -e .
+      - run: ruff check src tests scripts && ruff format --check src tests scripts
+      - run: mypy src/enterprise
+      - run: python -m enterprise.rag
+      - run: pytest --cov=enterprise --cov-report=xml --junitxml=test-results.xml
+      - run: pip-audit --disable-pip --no-deps -r requirements.lock
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-evidence
+          path: |
+            coverage.xml
+            test-results.xml
+      - run: docker compose up --build -d --wait
+      - run: python scripts/smoke.py
+      - run: docker compose down
+        if: always()

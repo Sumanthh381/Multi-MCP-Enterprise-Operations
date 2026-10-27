@@ -1,0 +1,28 @@
+[
+  {
+    "id": "SOP-PUMP-101",
+    "title": "Feed pump vibration and suction troubleshooting",
+    "asset_type": "pump",
+    "revision": "3",
+    "file": "pump-procedure.md",
+    "paragraph": 1,
+    "chunk_id": "SOP-PUMP-101:1:0",
+    "sha256": "52718e76f636bfad767048a63e7891be09454cac75bd54d5ee12a31011daa50f",
+    "text": "# Feed pump vibration and suction troubleshooting Recurring high vibration combined with low suction pressure on Boiler Feed Pump 101 or 102 can indicate suction strainer fouling, cavitation, or bearing misalignment. These are hypotheses requiring field verification, not a remote diagnosis.",
+    "score": 0.6407,
+    "citation": "[SOP-PUMP-101:1:0]"
+  },
+  {
+    "id": "SOP-PUMP-101",
+    "title": "Feed pump vibration and suction troubleshooting",
+    "asset_type": "pump",
+    "revision": "3",
+    "file": "pump-procedure.md",
+    "paragraph": 2,
+    "chunk_id": "SOP-PUMP-101:2:0",
+    "sha256": "52718e76f636bfad767048a63e7891be09454cac75bd54d5ee12a31011daa50f",
+    "text": "Verify suction pressure against a calibrated instrument. Inspect the suction strainer differential pressure and available net positive suction head. Check bearing lubrication, temperature and alignment using approved isolation and lockout procedures.",
+    "score": 0.2138,
+    "citation": "[SOP-PUMP-101:2:0]"
+  }
+]

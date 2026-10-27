@@ -1,0 +1,41 @@
+services:
+  alarm-api:
+    build: .
+    command: ["python", "-m", "uvicorn", "enterprise.simulator:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      ALARM_API_TOKEN: ${ALARM_API_TOKEN:-demo-token}
+    ports:
+      - "127.0.0.1:8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+  copilot:
+    build: .
+    environment:
+      ALARM_API_BASE_URL: http://alarm-api:8000
+      ALARM_API_TOKEN: ${ALARM_API_TOKEN:-demo-token}
+      DATA_PATH: /app/.runtime/operations.sqlite3
+      RAG_INDEX_PATH: /app/.runtime/rag-index.json
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - operations-data:/app/.runtime
+    depends_on:
+      alarm-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,json; assert json.load(urllib.request.urlopen('http://localhost:8080/health'))['status']=='ok'"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+      start_period: 10s
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  operations-data:
